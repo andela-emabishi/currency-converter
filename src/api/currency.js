@@ -1,15 +1,15 @@
-var axios = require('axios');
+import axios from 'axios';
 
-// export async function getRate(base) {
-//   const data = await axios.get('http://api.fixer.io/latest?base=' + base)
-//   return data
-// };
-
-export default async function getCurrencies() {
-  const data = await axios.get('http://api.fixer.io/latest')
-  return data;
+export const getRate = async (base) => {
+  const data = await axios.get('http://api.fixer.io/latest?base=' + base);
+  return data
 };
 
-// getRate('USD').then(result => console.log(result))
-// getRate('USD').then(result => console.log(result))
-// getRate('USD').then(result => console.log(Object.keys(result.data.rates))) // Array of currency names
+export const getCurrencies = async () => {
+  try {
+    const data = await axios.get('http://api.fixer.io/latest');
+    return data;
+  } catch(error) {
+    throw error
+  }
+};

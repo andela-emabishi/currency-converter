@@ -1,24 +1,17 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class CurrencyOption extends Component {
-  render() {
-    // console.log('letters', this.props.getCurrencies);
+const CurrencyOption = (props) =>  {
     return (
       <div>
         CurrencyOption
         <select>
-          {this.props.getCurrencies.map((currency, index) => {
-            <option value="currency">currency</option>
-          })
+          {props.currencies.map((currency, index) =>
+            <option value="currency" key={currency}>{currency}</option>
+          )
           }
         </select>
       </div>
     )
-  }
 }
 
 export default CurrencyOption;
-
-// getRate('USD').then(result => console.log(result))
-// getRate('USD').then(result => console.log(result))
-// getRate('USD').then(result => console.log(Object.keys(result.data.rates))) // Array of currency names
