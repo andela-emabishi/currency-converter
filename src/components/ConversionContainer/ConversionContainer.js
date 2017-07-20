@@ -39,7 +39,7 @@ class ConversionContainer extends Component {
   render() {
     return (
       <div>
-        <h2>Conversion Container</h2>
+        <h2 style={{ 'text-align': 'center'}}>Currency Converter</h2>
         <FromCurrencyOption currencies={this.state.currencies} handleCurrencySelect={this.getFromSelectedCurrency} handleCurrencyValueInput={this.handleCurrencyValueInput}/>
         <FromSelectedCurrency selectedCurrency={this.state.selectedFromCurrency}/>
         <ToCurrencyOption currencies={this.state.currencies} selectedFromCurrency={this.state.selectedFromCurrency} currencyValueInput={this.state.currencyValueInput}/>

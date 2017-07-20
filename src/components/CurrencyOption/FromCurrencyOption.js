@@ -5,8 +5,7 @@ class FromCurrencyOption extends Component {
 
   render() {
     return (
-    <div>
-      FromCurrencyOption
+    <div syle={{ 'text-align' : 'left'}}>
       <FromCurrencyInput handleCurrencyValueInput={this.props.handleCurrencyValueInput}/>
       <select onChange={this.props.handleCurrencySelect}>
       <option value=" ">CUR</option>

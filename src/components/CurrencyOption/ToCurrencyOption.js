@@ -19,8 +19,7 @@ class ToCurrencyOption extends Component {
 
   render() {
     return (
-      <div>
-        ToCurrencyOption
+      <div style={{ 'text-align' : 'right'}}>
         <select onChange={this.handleCurrencySelect}>
         <option value=" ">CUR</option>
           {this.props.currencies.map((currency, index) =>
