@@ -8,6 +8,7 @@ import { getCurrencies }  from '../../api/currency';
 class ConversionContainer extends Component {
   state = {
     currencies: [],
+    currencyValueInput: '',
     selectedFromCurrency: '',
     selectedToCurrency: '',
     rate: ''
@@ -16,6 +17,11 @@ class ConversionContainer extends Component {
   componentDidMount = () => {
     this.getCurrencyInitials();
   }
+
+  handleCurrencyValueInput = (event) => {
+    const currencyValueInput = event.target.value;
+    this.setState({ currencyValueInput });
+   }
 
   getCurrencyInitials = () => {
     getCurrencies().then(res => {
@@ -34,9 +40,9 @@ class ConversionContainer extends Component {
     return (
       <div>
         <h2>Conversion Container</h2>
-        <FromCurrencyOption currencies={this.state.currencies} handleCurrencySelect={this.getFromSelectedCurrency}/>
+        <FromCurrencyOption currencies={this.state.currencies} handleCurrencySelect={this.getFromSelectedCurrency} handleCurrencyValueInput={this.handleCurrencyValueInput}/>
         <FromSelectedCurrency selectedCurrency={this.state.selectedFromCurrency}/>
-        <ToCurrencyOption currencies={this.state.currencies} selectedFromCurrency={this.state.selectedFromCurrency} />
+        <ToCurrencyOption currencies={this.state.currencies} selectedFromCurrency={this.state.selectedFromCurrency} currencyValueInput={this.state.currencyValueInput}/>
       </div>
     );
   }

@@ -2,20 +2,12 @@ import React, {Component} from 'react';
 import FromCurrencyInput from '../CurrencyInput/FromCurrencyInput';
 
 class FromCurrencyOption extends Component {
-  state = {
-    currencyValueInput: ''
-  }
-
-   handleCurrencyValueInput = (event) => {
-    const currencyValueInput = event.target.value;
-    this.setState({ currencyValueInput })
-   }
 
   render() {
     return (
     <div>
       FromCurrencyOption
-      <FromCurrencyInput handleCurrencyValueInput={this.handleCurrencyValueInput}/>
+      <FromCurrencyInput handleCurrencyValueInput={this.props.handleCurrencyValueInput}/>
       <select onChange={this.props.handleCurrencySelect}>
       <option value=" ">CUR</option>
         {this.props.currencies.map((currency, index) =>

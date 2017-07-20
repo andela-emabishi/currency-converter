@@ -4,7 +4,7 @@ const ConversionDisplay = (props) => {
   return (
     <div>
       ConversionDisplay
-      {props.conversionRate}
+      {props.conversionRate * props.currencyValueInput}
     </div>
   )
 }
