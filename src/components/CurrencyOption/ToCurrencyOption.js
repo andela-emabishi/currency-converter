@@ -29,7 +29,7 @@ class ToCurrencyOption extends Component {
           }
         </select>
         <ToSelectedCurrency selectedToCurrency={this.state.selectedToCurrency} />
-        {this.state.conversionRate.length !== 0 ? <ConversionDisplay conversionRate={this.state.conversionRate} currencyValueInput={this.props.currencyValueInput} selectedToCurrency={this.state.selectedToCurrency}/> : null}
+        {this.state.conversionRate && this.state.conversionRate.length !== 0 ? <ConversionDisplay conversionRate={this.state.conversionRate} currencyValueInput={this.props.currencyValueInput} selectedToCurrency={this.state.selectedToCurrency}/> : null}
       </div>
     )
   }
