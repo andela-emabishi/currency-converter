@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
 
-import ConversionDisplay from '../ConversionDisplay/ConversionDisplay';
 import FromCurrencyOption from '../CurrencyOption/FromCurrencyOption';
 import ToCurrencyOption from '../CurrencyOption/ToCurrencyOption';
 import FromSelectedCurrency from '../SelectedCurrency/FromSelectedCurrency';
-import ToSelectedCurrency from '../SelectedCurrency/ToSelectedCurrency';
-import { getCurrencies, getRate }  from '../../api/currency';
+import { getCurrencies }  from '../../api/currency';
 
 class ConversionContainer extends Component {
   state = {
@@ -17,10 +15,6 @@ class ConversionContainer extends Component {
 
   componentDidMount = () => {
     this.getCurrencyInitials();
-  }
-
-  componentDidUpdate = () => {
-    
   }
 
   getCurrencyInitials = () => {
@@ -35,30 +29,14 @@ class ConversionContainer extends Component {
       selectedFromCurrency
     });
   }
-
-  getToSelectedCurrency = (event) => {
-    const selectedToCurrency = event.target.value;
-    this.setState({
-      selectedToCurrency
-    });
-  }
-
-  getRate = () => {
-    getRate(this.state.selectedFromCurrency).then(res => {
-      const conversionRate = res.rates.selectedToCurrency
-      this.setState({ rate: conversionRate })
-  })
-  }
     
   render() {
     return (
       <div>
         <h2>Conversion Container</h2>
-        <ConversionDisplay selectedCurrency={this.state.selectedCurrency}/>
         <FromCurrencyOption currencies={this.state.currencies} handleCurrencySelect={this.getFromSelectedCurrency}/>
-        <ToCurrencyOption currencies={this.state.currencies} handleCurrencySelect={this.getToSelectedCurrency}/>
+        <ToCurrencyOption currencies={this.state.currencies} selectedFromCurrency={this.state.selectedFromCurrency} />
         <FromSelectedCurrency selectedCurrency={this.state.selectedFromCurrency}/>
-        <ToSelectedCurrency selectedCurrency={this.state.selectedToCurrency}/>
       </div>
     );
   }

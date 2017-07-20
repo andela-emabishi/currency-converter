@@ -1,8 +1,12 @@
 import axios from 'axios';
 
-export const getRate = async (base) => {
-  const data = await axios.get('http://api.fixer.io/latest?base=' + base);
-  return data
+export const getRate = async (currencyToConvertFrom, currencyToConvertTo) => {
+  try {
+    const res = await axios.get('http://api.fixer.io/latest?base=' + currencyToConvertFrom);
+    return res.data.rates[currencyToConvertTo]
+  } catch (error) { 
+    throw error 
+  }
 };
 
 export const getCurrencies = async () => {

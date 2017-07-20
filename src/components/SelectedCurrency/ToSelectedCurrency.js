@@ -4,7 +4,7 @@ const ToSelectedCurrency = (props) => {
   return (
     <div>
       ToSelectedCurrency
-      {props.selectedCurrency}
+      {props.selectedToCurrency}
     </div>
   )
 }

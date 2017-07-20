@@ -1,15 +1,12 @@
-import React, { Component } from 'react';
-import {getRate} from '../../api/currency';
+import React from 'react';
 
-class ConversionDisplay extends Component {
-
-  render() {
-    return (
-      <div>
-        ConversionDisplay
-      </div>
-    )
-  }
+const ConversionDisplay = (props) => {
+  return (
+    <div>
+      ConversionDisplay
+      {props.conversionRate}
+    </div>
+  )
 }
 
 export default ConversionDisplay;

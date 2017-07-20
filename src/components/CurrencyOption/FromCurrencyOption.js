@@ -3,7 +3,7 @@ import React from 'react';
 const FromCurrencyOption = (props) => {
   return (
     <div>
-      CurrencyOption
+      FromCurrencyOption
       <select onChange={props.handleCurrencySelect}>
       <option value=" ">CUR</option>
         {props.currencies.map((currency, index) =>
